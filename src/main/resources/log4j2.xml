@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n" />
+		</Console>
+
+<!-- 		<Console name="STDOUT2" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d - %m%n" />
+		</Console> -->
+
+<!-- 		<File name="MyFile" fileName="C:/data/logs/exempleJava.log">
+			<PatternLayout pattern="%d %p %c{1.} [%t] %m%n" />
+		</File> -->
+
+<!-- 		<RollingFile name="RollingFile" fileName="C:/data/logs/exempleJavaRolling.log"
+			filePattern="C:/data/logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log">
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<CronTriggeringPolicy schedule="0 0 * * * ?"/>
+				<SizeBasedTriggeringPolicy size="100 KB" />
+			</Policies>
+			<DefaultRolloverStrategy max="5"/>
+		</RollingFile> -->
+
+	</Appenders>
+	<Loggers>
+	<!-- 	<Logger name="fr.epsi" level="DEBUG"/> -->
+
+		<Logger name="fr.epsi" level="DEBUG" />
+		<Root level="INFO">
+			<AppenderRef ref="STDOUT" />
+		</Root>
+	</Loggers>
+</Configuration>

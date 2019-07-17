@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                      http://www.springframework.org/schema/beans/spring-beans.xsd
+                      http://www.springframework.org/schema/context
+                      http://www.springframework.org/schema/context/spring-context.xsd
+                      http://www.springframework.org/schema/tx
+                      http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="com.apsidiscount.dao, com.apsidiscount.service"/>
+	<context:property-placeholder location="classpath:apsidiscount.properties,file:apsidiscount.properties"/>
+	<tx:annotation-driven />
+
+	<bean name="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${db.driver.classname}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.user.login}" />
+		<property name="password" value="${db.user.password}" />
+	</bean>
+
+	<bean name="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<bean name="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="${db.persistence.unit.name}" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+</beans>
