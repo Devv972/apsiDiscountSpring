@@ -8,5 +8,9 @@ public interface ArticleService {
 
 	Article modifier(long id, String designation, String description) throws ArticleInconnuException;
 
-	void create(Article a);
+	Article create(Article a) throws ArticleInconnuException;
+
+	Article getAll(Article a) throws ArticleInconnuException;
+	
+	
 }

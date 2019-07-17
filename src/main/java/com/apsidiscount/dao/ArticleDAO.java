@@ -13,6 +13,7 @@ public interface ArticleDAO {
 
 	List<Article> getByCategorie(Categorie categorie);
 	
-	void create(Article a);
+	Article create(Article a);
 
+	List<Article> getAll();
 }

@@ -43,8 +43,16 @@ public class ArticleDAOImpl implements ArticleDAO {
 	}
 
 	@Override
-	public void create(Article a) {
+	public Article create(Article a) {
 		this.em.persist(a);
+		return a;
 	}
+
+	@Override
+	public List<Article> getAll() {
+		return this.em.createQuery("select a from Article a order by a.nom", Article.class).getResultList();
+	}
+
+	
 
 }
