@@ -45,6 +45,15 @@ public class ArticleDAOTest extends AbstractBaseTest {
 	}
 
 	@Test
+	public void canGetAll() throws Exception {
+		ArticleDAO articleDAO = new ArticleDAOImpl(this.em);
+
+		List<Article> articles = articleDAO.getAll();
+		
+		assertFalse(articles.isEmpty());
+	}
+
+	@Test
 	public void canAddArticleDansPanier() throws Exception {
 		ClientDAO clientDAO = new ClientDAOImpl(this.em);
 		Client client = createClient(clientDAO);

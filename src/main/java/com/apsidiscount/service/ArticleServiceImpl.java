@@ -39,9 +39,7 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public List<Article> getAll()  {
-		List<Article> listArt = articleDAO.getAll();
-		return  listArt;
-		
+		return articleDAO.getAll();
 	}
 
 	@Override
