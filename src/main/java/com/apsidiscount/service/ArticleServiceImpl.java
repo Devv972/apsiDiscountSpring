@@ -1,5 +1,7 @@
 package com.apsidiscount.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,15 +38,15 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	
-	public Article getAll(Article a) throws ArticleInconnuException {
-		return a;
+	public List<Article> getAll()  {
+		List<Article> listArt = articleDAO.getAll();
+		return  listArt;
 		
 	}
 
 	@Override
-	@Transactional(rollbackOn = ArticleInconnuException.class)
-	public Article create(Article a) throws ArticleInconnuException {
+	@Transactional
+	public Article create(Article a)  {
 		Article article = articleDAO.create(a);
 		return article;
 		

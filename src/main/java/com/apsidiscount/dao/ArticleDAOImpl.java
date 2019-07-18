@@ -50,7 +50,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 
 	@Override
 	public List<Article> getAll() {
-		return this.em.createQuery("select a from Article a order by a.nom", Article.class).getResultList();
+		return this.em.createQuery("select a from Article a order by a.designation", Article.class).getResultList();
 	}
 
 	

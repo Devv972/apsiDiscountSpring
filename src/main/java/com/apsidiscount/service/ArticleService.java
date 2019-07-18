@@ -1,5 +1,7 @@
 package com.apsidiscount.service;
 
+import java.util.List;
+
 import com.apsidiscount.entity.Article;
 
 public interface ArticleService {
@@ -8,9 +10,9 @@ public interface ArticleService {
 
 	Article modifier(long id, String designation, String description) throws ArticleInconnuException;
 
-	Article create(Article a) throws ArticleInconnuException;
+	Article create(Article a) ;
 
-	Article getAll(Article a) throws ArticleInconnuException;
+	List<Article> getAll() ;
 	
 	
 }
