@@ -18,4 +18,6 @@ public interface ArticleDAO {
 	Article create(Article a);
 
 	List<Article> getAll();
+
+	List<Article> getCategorieById(Long idCategorie);
 }

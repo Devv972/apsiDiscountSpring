@@ -49,6 +49,18 @@ public class ArticleServiceImpl implements ArticleService {
 		return article;
 		
 	}
+
+	@Override
+	public List<Article> getByCategorie(String nomCategorie) {
+		
+		return articleDAO.getByCategorie(nomCategorie);
+	}
+
+	@Override
+	public List<Article> getCategorieById(Long idCategorie) {
+		
+		return articleDAO.getCategorieById(idCategorie);
+	}
 	
 
 }

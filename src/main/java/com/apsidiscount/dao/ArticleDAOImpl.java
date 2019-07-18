@@ -34,6 +34,12 @@ public class ArticleDAOImpl implements ArticleDAO {
 				      .setParameter("nomCategorie", nomCategorie)
 				      .getResultList();
 	}
+	@Override
+	public List<Article> getCategorieById(Long idCategorie) {
+		return this.em.createQuery("select a from Article a where a.categorie.id = :id", Article.class)
+				      .setParameter("idCategorie", idCategorie)
+				      .getResultList();
+	}
 
 	@Override
 	public List<Article> getByCategorie(Categorie categorie) {
@@ -50,9 +56,10 @@ public class ArticleDAOImpl implements ArticleDAO {
 
 	@Override
 	public List<Article> getAll() {
-		return this.em.createQuery("select new Article(a.id, a.designation, a.image, a.prix, a.stock) from Article a ", Article.class).getResultList();
+		return this.em.createQuery("select  Article from Article a ", Article.class).getResultList();
 	}
 
+	
 	
 
 }

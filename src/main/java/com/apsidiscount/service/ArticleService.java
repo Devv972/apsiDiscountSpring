@@ -14,5 +14,8 @@ public interface ArticleService {
 
 	List<Article> getAll() ;
 	
+
+	List<Article> getByCategorie(String nomCategorie); 
+	List<Article> getCategorieById(Long idCategorie);
 	
 }
