@@ -42,4 +42,5 @@ public class CategorieDAOImpl implements CategorieDAO {
 	public List<Categorie> getAllCategorie() {
 		return this.em.createQuery("select new Categorie (c.id, c.nom) from Categorie c ", Categorie.class).getResultList();
 	}
+
 }
