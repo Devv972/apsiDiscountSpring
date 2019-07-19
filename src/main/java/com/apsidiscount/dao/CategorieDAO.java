@@ -8,5 +8,7 @@ import com.apsidiscount.entity.Categorie;
 public interface CategorieDAO {
 
 	List<Categorie> getForPrixArticleInferieurA(BigDecimal prix);
+	
+	List<Categorie> getAllCategorie();
 
 }

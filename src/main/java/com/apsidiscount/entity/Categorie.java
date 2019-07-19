@@ -26,6 +26,20 @@ public class Categorie {
 	
 	@OneToMany(mappedBy="categorie")
 	private List<Article> articles;
+	
+	
+
+	public Categorie(Long id, String nom) {
+		super();
+		this.id = id;
+		this.nom = nom;
+	}
+	
+
+	public Categorie() {
+		super();
+	}
+
 
 	public Long getId() {
 		return id;

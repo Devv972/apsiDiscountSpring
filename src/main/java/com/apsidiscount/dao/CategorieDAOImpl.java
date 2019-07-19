@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 
 import com.apsidiscount.entity.Categorie;
 
+
+
 @Repository
 public class CategorieDAOImpl implements CategorieDAO {
 
@@ -30,4 +32,14 @@ public class CategorieDAOImpl implements CategorieDAO {
 				 .getResultList();
 	}
 
+//	@Override
+//	public List<Categorie> getCategorie(Long id, String nom) {
+//		 	return em.createQuery("select distinct c from Categorie c ", Categorie.class)
+//				 .setParameter("categorie", categorie)
+//				 .getResultList();
+//	}
+	@Override
+	public List<Categorie> getAllCategorie() {
+		return this.em.createQuery("select new Categorie (c.id, c.nom) from Categorie c ", Categorie.class).getResultList();
+	}
 }
