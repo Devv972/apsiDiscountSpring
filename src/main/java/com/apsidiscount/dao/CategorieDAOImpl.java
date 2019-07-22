@@ -46,7 +46,7 @@ public class CategorieDAOImpl implements CategorieDAO {
 
 	@Override
 	public List<Article> getArticleByCategorie(long id) {
-		return this.em.createQuery("select a from Article a where a.categorie.id = :id", Article.class)
+		return this.em.createQuery("select new Article (a.id, a.designation, a.image, a.prix, a.stock) from Article a where a.categorie.id = :id", Article.class)
 			      .setParameter("id", id)
 			      .getResultList();
 	}
