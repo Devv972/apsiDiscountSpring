@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
+import com.apsidiscount.entity.Article;
 import com.apsidiscount.entity.Categorie;
 
 
@@ -41,6 +42,13 @@ public class CategorieDAOImpl implements CategorieDAO {
 	@Override
 	public List<Categorie> getAllCategorie() {
 		return this.em.createQuery("select new Categorie (c.id, c.nom) from Categorie c ", Categorie.class).getResultList();
+	}
+
+	@Override
+	public List<Article> getArticleByCategorie(long id) {
+		return this.em.createQuery("select a from Article a where a.categorie.id = :id", Article.class)
+			      .setParameter("id", id)
+			      .getResultList();
 	}
 
 }
